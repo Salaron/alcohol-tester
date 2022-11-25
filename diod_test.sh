@@ -1,3 +1,11 @@
+# Подключением GPIO и устанавливаем порты на вывод
+echo 11 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio11/direction
+echo 12 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio12/direction
+echo 13 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio13/direction
+
 status1=0
 status2=1
 status3=0
@@ -28,3 +36,8 @@ while [ 1 ]; do
     fi
     sleep 0.1
 done
+
+# Освобождение вывода GPIO
+echo 11 > /sys/class/gpio/unexport
+echo 12 > /sys/class/gpio/unexport
+echo 13 > /sys/class/gpio/unexport
